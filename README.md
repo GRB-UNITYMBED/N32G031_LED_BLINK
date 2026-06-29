@@ -1,51 +1,49 @@
-# N32G031_SERVO_SMOOTH 🤖✨
+# N32G031_LED_BLINK 
 
-An introductory project designed to teach servo motor control using the **N32G031** microcontroller, with a specific focus on achieving seamless, jerk-free movement (Smooth Sweep). This project serves as an excellent foundational learning tool for robotics and `for` loop applications tailored for kids and beginners.
-
----
-
-## 🎯 Learning Points
-* **Smooth Movement:** Understand the difference between making a robot "teleport" instantly versus "taking incremental steps" using the `Smooth_Move` function to create life-like, fluid animations.
-* **Hardware Calibration:** Gain hands-on experience tuning real hardware parameters (Pulse Width) to accurately calibrate 0, 90, and 180-degree angles.
-* **For Loop Application:** Visualize how a `for` loop works by watching the robot's arm move sequentially as numerical values increment or decrement.
+![Blink](doc/images/blink.png)
+An introductory project designed to teach basic GPIO (General Purpose Input/Output) control using the **N32G031** microcontroller. This "Hello World" of hardware serves as an excellent foundational learning tool for beginners and students to understand digital outputs, basic circuit wiring, and timing functions.
 
 ---
 
-## 🔌 Wiring Diagram
+## Learning Points
+* **Digital Outputs:** Understand the concepts of HIGH (ON) and LOW (OFF) states in digital electronics.
+* **Basic Electronics:** Gain hands-on experience using a breadboard, understanding LED polarity (Anode/Cathode), and the importance of current-limiting resistors.
+* **Timing & Delays:** Visualize how code execution speed affects physical hardware and how to use delay functions to create visible blinking patterns.
 
-The connections between the N32G031 board and the servo motor (e.g., SG90 model) are as follows:
+---
 
-| Servo Signal Wire | N32G031 Pin | Description |
+## Wiring Diagram
+
+The connections between the N32G031 board, the LED, and the resistor are as follows:
+
+| Component | N32G031 Pin | Description |
 | :--- | :---: | :--- |
-| 🟤 **Brown / Black (GND)** | **GND** | Common System Ground |
-| 🔴 **Red (VCC)** | **5V** | Motor Power Supply |
-| 🟠 **Orange / Yellow (Signal)** | **PA1** | Control Signal Pin (PWM Bit-Banging) |
+| 🖤 **LED Cathode (Short Leg)** | **GND** | Connected via the negative rail (Black wire) |
+| ❤️ **LED Anode (Long Leg)** | **PA1** | Connected via a resistor (Red wire to control signal) |
 
 ---
 
-## 🛠️ Hardware Constants & Calibration
-Since every servo motor has minor manufacturing variances, the pulse width constants for this specific setup have been calibrated as follows:
-* **0 Degrees (Far Left):** `2250`
-* **90 Degrees (Center / Straight Up):** `4400`
-* **180 Degrees (Far Right):** `5500`
-
-> ⚠️ **Important Note for Learners:** Avoid pushing these numbers past the motor's physical constraints (Mechanical Limit). Doing so can cause the motor to stall, draw excessive current, and lead to microcontroller freezes or crashes.
+## Hardware Setup & Precautions
+When setting up your first LED circuit, please keep the following in mind:
+* **LED Polarity:** LEDs only allow current to flow in one direction. Ensure the longer leg (Anode) connects to the signal pin (PA1) and the shorter leg (Cathode) connects to Ground (GND).
+* **Use a Resistor:** Always use a current-limiting resistor (e.g., 220Ω or 330Ω) in series with the LED. Connecting an LED directly to the signal pin without a resistor can draw excessive current and damage the LED or the microcontroller.
 
 ---
 
-## 🚀 Code Execution Sequence
-Once powered on, the robotic arm will smoothly sweep through the following loop continuously:
-1. Smoothly sweep from **0 ➡️ 90 Degrees** 🌟 Hold position for 2 seconds.
-2. Smoothly sweep from **90 ➡️ 180 Degrees** 🌟 Hold position for 2 seconds.
-3. Smoothly sweep back from **180 ➡️ 90 Degrees** 🌟 Hold position for 2 seconds.
-4. Smoothly sweep back from **90 ➡️ 0 Degrees** 🌟 Hold position for 2 seconds, then restart the cycle.
+## Code Execution Sequence
+Once powered on and flashed with the code, the microcontroller will execute the following loop continuously:
+1. Set PA1 to **HIGH** (LED turns ON).
+2. Hold this state for **1 second** (1000 ms).
+3. Set PA1 to **LOW** (LED turns OFF).
+4. Hold this state for **1 second** (1000 ms), then restart the cycle.
 
 ---
 
-## 💡 Creative Extension Ideas for Students
-* **The Speed Challenge:** Encourage students to modify the step increments inside the `Smooth_Move` function (specifically the `p += 20` and `p -= 20` lines).
-  * What happens if they change it to `+= 50`? Does the robot turn faster?
-  * What happens if they change it to `+= 5`? Does it create a dramatic slow-motion effect?
+## Creative Extension Ideas for Students
+* **The Speed Challenge:** Encourage students to modify the delay times inside the code.
+  * What happens if they change the delay to `100` milliseconds? Does it look like a strobe light?
+  * What happens if the ON time is `100` but the OFF time is `2000`?
+* **Heartbeat Effect:** Can they write a sequence of delays to make the LED blink like a human heartbeat (ba-bum... ba-bum...)?
 
 ---
 Developed by **GRB-UNITYMBED** to deliver highly accessible, engaging, and comprehensive coding and robotics educational materials for everyone. 🚀
