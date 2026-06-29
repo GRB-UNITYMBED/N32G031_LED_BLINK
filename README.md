@@ -46,4 +46,4 @@ Once powered on and flashed with the code, the microcontroller will execute the 
 * **Heartbeat Effect:** Can they write a sequence of delays to make the LED blink like a human heartbeat (ba-bum... ba-bum...)?
 
 ---
-Developed by **GRB-UNITYMBED** to deliver highly accessible, engaging, and comprehensive coding and robotics educational materials for everyone. 🚀
+Part of the [UnityMbed](https://github.com/GRB-UNITYMBED) N32G031 example set.
