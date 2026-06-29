@@ -12,7 +12,7 @@ An introductory project designed to teach basic GPIO (General Purpose Input/Outp
 
 ---
 
-## Wiring Diagram
+## Wiring
 
 The connections between the N32G031 board, the LED, and the resistor are as follows:
 
